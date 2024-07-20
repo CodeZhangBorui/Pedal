@@ -1,3 +1,6 @@
+# Software data
+pedal.db
+
 # Frontend files
 node_modules/
 
