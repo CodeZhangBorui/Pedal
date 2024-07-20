@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="w-full h-full">
+  <head>
+    {% include 'components/headers.html' %}
+    <title>Pedal</title>
+  </head>
+  <body class="bg-gray-100">
+    <nav
+      class="flex flex-row bg-white m-2 p-2 rounded shadow backdrop-blur-2xl space-x-3"
+    >
+      {% include 'components/navbar.html' %}
+    </nav>
+    <div class="w-full px-0 lg:px-[15.5%]">
+      <p class="text-sm my-5">
+        <a class="text-gray-500">管理面板</a>
+        <span class="mx-1">/</span>
+        <a href="/">实例列表</a>
+      </p>
+      <div class="mb-4 p-3 bg-white rounded border shadow">
+        <h2 class="font-bold mb-2">实例列表</h2>
+        <p class="text-gray-600 text-sm">管理员所分配给您的所有实例</p>
+        <table class="m-2 min-w-full divide-y divide-gray-300">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+              >
+                实例名称
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                实例 ID
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                实例状态
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                实例类型
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                实例创建时间
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody id="instance-list" class="divide-y divide-gray-200">
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                Velocity
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >运行中</span
+                >
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                Minecraft / Velocity
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                2021-10-01 12:00:00
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                Lobby
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >运行中</span
+                >
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                Minecraft / PaperMC
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                2021-10-01 12:00:00
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                hjMC3
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >运行中</span
+                >
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                Minecraft / PaperMC
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                2021-10-01 12:00:00
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                Minigames
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-600/20"
+                  >已暂停</span
+                >
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                Minecraft / PaperMC
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                2021-10-01 12:00:00
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mb-4 p-3 bg-white rounded border shadow">
+        <h2 class="font-bold mb-2">渠道管理</h2>
+        <p class="text-gray-600 text-sm">登录第三方面板渠道的凭据</p>
+        <table class="m-2 min-w-full divide-y divide-gray-300">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+              >
+                渠道名称
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                渠道接口
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                渠道状态
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                登录凭据
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                实例数
+              </th>
+              <th
+                scope="col"
+                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody id="adapter-list" class="divide-y divide-gray-200">
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                雨云1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                MCSManager
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >在线</span
+                > - 2 分钟前
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                mcsm.rainyun.com@HECODE
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                2
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                雨云2
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                MCSManager
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >在线</span
+                > - 3 分钟前
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                mcsm.rainyun.com@ge10477558
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                雨云3
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                MCSManager
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >在线</span
+                > - 1 分钟前
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                mcsm.rainyun.com@hjMC3
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                腾讯云
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                MCSManager
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+                  >在线</span
+                > - 6 分钟前
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                1.117.172.115:23333@HECODE
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                3
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+              >
+                GCPHK
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                MCSManager
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <span
+                  class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20"
+                  >离线</span
+                >
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                34.92.104.201:23333@HECODE
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                3
+              </td>
+              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <button class="text-blue-500">查看</button>
+                <button class="text-red-500">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="/static/js/index.js"></script>
+  </body>
+</html>
