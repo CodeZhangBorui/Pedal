@@ -1,4 +1,89 @@
-<button class="p-2 text-blue-500 font-sans font-black">Pedal</button>
-<button class="hover:bg-gray-100 p-2 rounded transition-colors">实例列表</button>
-<button class="hover:bg-gray-100 p-2 rounded transition-colors">渠道管理</button>
-<button class="hover:bg-gray-100 p-2 rounded transition-colors">用户管理</button>
+<nav
+  class="flex flex-row justify-between bg-white m-2 p-2 rounded shadow backdrop-blur-2xl space-x-3"
+>
+  <div>
+    <div class="hidden md:block">
+      <button class="p-2 text-blue-500 font-sans font-black">Pedal</button>
+      <button
+        class="hover:bg-gray-100 p-2 rounded transition-colors"
+        data-href="/"
+      >
+        实例列表
+      </button>
+      <button
+        class="hover:bg-gray-100 p-2 rounded transition-colors"
+        data-href="/adapters"
+      >
+        渠道管理
+      </button>
+      <button
+        class="hover:bg-gray-100 p-2 rounded transition-colors"
+        data-href="/users"
+      >
+        用户管理
+      </button>
+    </div>
+    <div class="block md:hidden">
+      <button class="p-2 text-blue-500 font-sans font-black">Pedal</button>
+      <button
+        id="mobile-menu"
+        class="hover:bg-gray-100 p-2 rounded transition-colors"
+      >
+        <i class="icon-ic_fluent_list_28_regular size-10"></i>
+      </button>
+    </div>
+  </div>
+  <div>
+    <button
+      class="hover:bg-gray-100 p-2 rounded transition-colors"
+      id="my-account"
+    >
+      我的账户
+    </button>
+  </div>
+</nav>
+<nav
+  class="hidden flex md:hidden flex-col bg-white m-2 p-2 rounded shadow backdrop-blur-2xl space-y-1"
+  id="mobile-menu-content"
+>
+  <button
+    class="w-full hover:bg-gray-100 p-2 rounded transition-colors"
+    data-href="/"
+  >
+    实例列表
+  </button>
+  <button
+    class="w-full hover:bg-gray-100 p-2 rounded transition-colors"
+    data-href="/adapters"
+  >
+    渠道管理
+  </button>
+  <button
+    class="w-full hover:bg-gray-100 p-2 rounded transition-colors"
+    data-href="/users"
+  >
+    用户管理
+  </button>
+</nav>
+
+<div id="my-account-menu" class="hidden">
+  <div class="flex flex-col">
+    <button class="p-2 rounded">个人信息</button>
+    <button class="p-2 rounded">修改密码</button>
+    <button class="p-2 rounded">退出登录</button>
+  </div>
+</div>
+
+<script>
+  tippy('button#my-account', {
+    content: document.querySelector('div#my-account-menu').innerHTML,
+    allowHTML: true,
+    interactive: true,
+    hideOnClick: 'toggle',
+    trigger: 'click',
+  });
+  
+  document.querySelector('button#mobile-menu').addEventListener('click', () => {
+    document.querySelector('nav#mobile-menu-content').classList.toggle('hidden');
+  });
+</script>
