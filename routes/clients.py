@@ -37,3 +37,67 @@ def login():
             'success': False,
             'message': 'Invalid username or password.'
         }
+
+@clients.route('/api/clients/logout', methods=['POST'])
+def logout():
+    """API: User logout."""
+    vrf = authed.verify_request(request)
+    if vrf['auth']:
+        session.delete(vrf['session_id'])
+        return {
+            'success': True
+        }
+    else:
+        return {
+            'success': False,
+            'message': 'Not authenticated.'
+        }, 401
+
+@clients.route('/api/clients/changepass', methods=['POST'])
+def changepass():
+    """API: Change password."""
+    vrf = authed.verify_request(request)
+    if not vrf['auth']:
+        return {
+            'success': False,
+            'message': 'Not authenticated.'
+        }, 401
+    try:
+        old_password = request.json['oldpass']
+        new_password = request.json['newpass']
+    except KeyError:
+        return {
+            'success': False,
+            'message': 'Invalid request.'
+        }, 400
+    if not users.verify(vrf['username'], old_password):
+        return {
+            'success': False,
+            'message': 'Invalid old password.'
+        }
+    users.update(vrf['username'], passwd=new_password)
+    session.purge_user(vrf['username'])
+    return {
+        'success': True
+    }
+
+
+@clients.route('/api/clients/account', methods=['GET'])
+def account():
+    """API: Get account information."""
+    vrf = authed.verify_request(request)
+    if not vrf['auth']:
+        return {
+            'success': False,
+            'message': 'Not authenticated.'
+        }, 401
+    account_data = users.get_by_name(vrf['username'])
+    perm_level = 'default'
+    if permissions.has_permission(vrf['username'], 'admin'):
+        perm_level = 'admin'
+    return {
+        'success': True,
+        'username': vrf['username'],
+        'email': account_data['email'],
+        'permission': perm_level
+    }

@@ -68,15 +68,32 @@
 
 <div id="my-account-menu" class="hidden">
   <div class="flex flex-col">
-    <button class="p-2 rounded">个人信息</button>
-    <button class="p-2 rounded">修改密码</button>
-    <button class="p-2 rounded">退出登录</button>
+    <button class="p-2 rounded" data-href="/account">个人信息</button>
+    <button id="logout" class="p-2 rounded">退出登录</button>
   </div>
 </div>
 
 <script>
+  my_account_menu = document.createElement('div');
+  my_account_menu.classList.add('flex', 'flex-col');
+  personal_info_but = document.createElement('button');
+  personal_info_but.classList.add('p-2', 'rounded');
+  personal_info_but.innerText = '个人信息';
+  personal_info_but.addEventListener('click', () => {
+    window.location.href = '/account';
+  });
+  my_account_menu.appendChild(personal_info_but);
+  logout_but = document.createElement('button');
+  logout_but.classList.add('p-2', 'rounded');
+  logout_but.innerText = '退出登录';
+  logout_but.addEventListener('click', () => {
+    axios.post('/api/clients/logout').then(() => {
+      window.location.href = '/login';
+    });
+  });
+  my_account_menu.appendChild(logout_but);
   tippy('button#my-account', {
-    content: document.querySelector('div#my-account-menu').innerHTML,
+    content: my_account_menu,
     allowHTML: true,
     interactive: true,
     hideOnClick: 'toggle',

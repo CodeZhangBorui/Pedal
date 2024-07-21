@@ -27,7 +27,14 @@ def favicon():
     # return send_file('static/favicon.ico')
     return {'success': False}
 
-@pages.route('/login', methods=['GET'])
+@pages.route('/login')
 def login():
     """Page for login"""
     return render_template('login.html')
+
+@pages.route('/account')
+def account():
+    """Page for account"""
+    if not authed.verify_request(request)['auth']:
+        return redirect('/login', code=302)
+    return render_template('account.html')

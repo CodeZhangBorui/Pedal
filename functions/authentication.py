@@ -18,7 +18,7 @@ def verify_request(flask_request):
     session_data = session.get_user(session_id)
     if session_data is None:
         return {'auth': False}
-    return {'auth': True, 'username': session_data}
+    return {'auth': True, 'username': session_data, 'session_id': session_id}
 
 def new_response(response, session_id):
     """Make the response with authenticated cookies."""

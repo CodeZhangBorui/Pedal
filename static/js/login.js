@@ -6,7 +6,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         'username': username,
         'password': password
     }).then((result) => {
-        var data = result.data;
+        let data = result.data;
         if (data.success) {
             swal({
                 title: "登录成功",
