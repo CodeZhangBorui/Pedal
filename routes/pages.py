@@ -38,3 +38,12 @@ def account():
     if not authed.verify_request(request)['auth']:
         return redirect('/login', code=302)
     return render_template('account.html')
+
+@pages.route('/channels')
+def channels():
+    """Page for channels"""
+    if not authed.verify_request(request)['auth']:
+        return redirect('/login', code=302)
+    if not permissions.has_permission(authed.verify_request(request)['username'], 'group.admin'):
+        return redirect('/account', code=302)
+    return render_template('channels.html')

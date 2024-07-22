@@ -1,5 +1,8 @@
 {
     "flask": {
         "debug": true
-    }
+    },
+    "adapters": [
+        "mcsmanager"
+    ]
 }

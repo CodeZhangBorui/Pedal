@@ -93,7 +93,7 @@ def account():
         }, 401
     account_data = users.get_by_name(vrf['username'])
     perm_level = 'default'
-    if permissions.has_permission(vrf['username'], 'admin'):
+    if permissions.has_permission(vrf['username'], 'group.admin'):
         perm_level = 'admin'
     return {
         'success': True,

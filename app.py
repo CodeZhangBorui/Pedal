@@ -10,6 +10,7 @@ from flask_apscheduler import APScheduler
 # Import routes
 from routes.pages import pages
 from routes.clients import clients
+from routes.channels import channels
 
 # Load config from json file
 with open("config.json", encoding='utf-8') as file:
@@ -24,6 +25,7 @@ app.secret_key = os.urandom(24)
 # Register routes
 app.register_blueprint(pages)
 app.register_blueprint(clients)
+app.register_blueprint(channels)
 
 # Register scheduler
 

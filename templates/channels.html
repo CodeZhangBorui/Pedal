@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="w-full h-full">
+  <head>
+    {% include 'components/headers.html' %}
+    <title>Pedal</title>
+    <script src="/static/tippy.js@6.3.7/popper.min.js"></script>
+    <script src="/static/tippy.js@6.3.7/tippy-bundle.umd.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    {% include 'components/navbar.html' %}
+    <div class="w-full px-5 lg:px-[15.5%]">
+      <p class="text-sm my-5">
+        <a class="text-gray-500">管理面板</a>
+        <span class="mx-1">/</span>
+        <a href="/">渠道管理</a>
+      </p>
+      <div class="mb-4 p-3 bg-white rounded border shadow">
+        <h2 class="font-bold mb-2">渠道管理</h2>
+        <p class="text-gray-600 text-sm">登录第三方面板渠道的凭据</p>
+        <div class="p-2 overflow-x-auto">
+          <table id="channelsTable" class="min-w-full divide-y divide-gray-300">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                >
+                  渠道ID
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  渠道接口
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  渠道名称
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  远程面板地址
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  用户名
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  实例数
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
+                  操作
+                </th>
+              </tr>
+            </thead>
+            <tbody id="adapter-list" class="divide-y divide-gray-200"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mb-4 p-3 bg-white rounded border shadow">
+        <h2 class="font-bold mb-2">新建渠道</h2>
+        <div class="p-2 overflow-x-auto">
+          <form>
+            <label
+              for="adapter"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >选择接口</label
+            >
+            <select
+              class="block my-2 w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:shadow-lg transition-shadow"
+              name="adapter"
+              id="adapterSelect"
+            >
+              <option value="undefined">加载中……</option>
+            </select>
+            <label
+              for="channel_name"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >渠道名称</label
+            >
+            <input
+              type="text"
+              name="channel_name"
+              id="channel_name"
+              class="block my-2 p-2 w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:shadow-lg transition-shadow"
+            />
+            <label
+              for="paneladdr"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >远程面板地址</label
+            >
+            <label
+              for="paneladdr"
+              class="block text-sm font-medium leading-6 text-gray-700"
+              >以 http/https 开头，结尾不包括“/”</label
+            >
+            <input
+              type="text"
+              name="paneladdr"
+              id="paneladdr"
+              class="block my-2 p-2 w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:shadow-lg transition-shadow"
+            />
+            <label
+              for="apikey"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >API-KEY</label
+            >
+            <input
+              type="text"
+              name="apikey"
+              id="apikey"
+              class="block my-2 p-2 w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:shadow-lg transition-shadow"
+            />
+            <button
+              type="submit"
+              class="flex mt-2 justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:shadow-lg transition-shadow"
+            >
+              新建渠道
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/channels.js"></script>
+    <script src="/static/js/data-href.js"></script>
+  </body>
+</html>
